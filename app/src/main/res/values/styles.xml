@@ -4,7 +4,7 @@
         <item name="colorPrimary">?attr/colorSurface</item>
         <item name="colorPrimaryDark">?attr/colorSurface</item>
 
-        <item name="android:navigationBarColor">@color/Black</item>
+        <item name="android:navigationBarColor">@color/Default</item>
         <item name="android:colorEdgeEffect">?attr/colorSecondary</item>
 
         <item name="windowActionModeOverlay">true</item>

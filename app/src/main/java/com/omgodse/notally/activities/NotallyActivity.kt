@@ -72,6 +72,13 @@ abstract class NotallyActivity(private val type: Type) : AppCompatActivity(), Op
             val pin = menu.add(R.string.pin, R.drawable.pin) { item -> pin(item) }
             bindPinned(pin)
 
+            if (model.folder == Folder.NOTES) {
+                menu.add(R.string.item, R.drawable.checkbox) { switchCheckAll() }
+                    .apply {
+                        icon.alpha = 144
+                    }
+            }
+
             menu.add(R.string.share, R.drawable.share) { share() }
             menu.add(R.string.labels, R.drawable.label) { label() }
 
@@ -166,6 +173,8 @@ abstract class NotallyActivity(private val type: Type) : AppCompatActivity(), Op
         model.moveBaseNoteToArchive()
         onBackPressed()
     }
+
+    open fun switchCheckAll() {}
 
     private fun deleteForever() {
         MaterialAlertDialogBuilder(this)

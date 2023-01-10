@@ -1,5 +1,6 @@
 package com.omgodse.notally.activities
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import com.omgodse.notally.R
 import com.omgodse.notally.miscellaneous.setOnNextAction
@@ -79,5 +80,22 @@ class MakeList : NotallyActivity(Type.LIST) {
                 moveToNext(currentPosition + 1)
             } else viewHolder.binding.ListItem.requestFocus()
         } else addListItem()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun switchCheckAll() {
+        if (model.items.isEmpty()) return
+
+        var checked = true
+        if (model.items.any() {
+            it.checked
+        }) {
+            checked = false
+        }
+        for (item in model.items) {
+            item.checked = checked
+        }
+
+        adapter.notifyDataSetChanged()
     }
 }
